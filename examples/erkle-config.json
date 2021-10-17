@@ -26,25 +26,25 @@
             {
                 "description": "Replace Factory address in interface constants folder",
                 "path": "/Users/username/path-to-folder-with-files-to-replace",
-                "replace": "0x00",
+                "replace": "0x0000000000000000000000000000000000000000",
                 "extensions": ["*.ts", "*.tsx"]
             },
             {
                 "description": "Replace CampaignFactory implementation address in home page",
                 "path": "/Users/username/path-to-folder-with-files-to-replace",
-                "replace": "0x00",
+                "replace": "0x0000000000000000000000000000000000000000",
                 "extensions": ["*.tsx"]
             },
             {
                 "description": "Replace Factory address subgraph yaml file",
                 "path": "/Users/username/path-to-folder-with-files-to-replace",
-                "replace": "0x00",
+                "replace": "0x0000000000000000000000000000000000000000",
                 "extensions": ["*.yaml"]
             },
             {
                 "description": "Replace Factory address subgraph utils folder",
                 "path": "/Users/username/path-to-folder-with-files-to-replace",
-                "replace": "0x00",
+                "replace": "0x0000000000000000000000000000000000000000",
                 "extensions": ["*.ts"]
             }
         ]

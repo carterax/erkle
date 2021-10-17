@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "semantic-release": "semantic-release --branches main",
-    "commit": "git cz"
+    "commit": "git cz",
+    "push": "git add . && npm run commit && git push"
   },
   "bin": {
     "erkle": "bin/erkle.js"

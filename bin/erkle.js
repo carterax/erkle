@@ -72,7 +72,7 @@ if (getOption('replace', replace.run)) {
     );
 
     let replaceWith = readlineSync.question(
-      '❯ ' + chalk.magenta('Replace with: ')
+      '? ' + chalk.magenta('Replace with: ')
     );
     shell.cd(path.resolve(replace.tasks[i].path));
     shell

@@ -1,0 +1,64 @@
+{
+    "contractPath": "/Users/username/path-to-dapp",
+    "subgraphPath": "/Users/username/path-to-subgraph",
+    "contractCompile": {
+        "run": true,
+        "script": "npm run postinstall"
+    },
+    "contractMigration": {
+        "run": true,
+        "script": "npm run migrate"
+    },
+    "contractABICopy": {
+        "run": true,
+        "compiledContracts": [
+            "/build/contracts/Factory.json",
+            "/build/contracts/Delegate.json"
+        ],
+        "copyABITo": [
+            "/Users/username/path-to-abi-in-interface",
+            "/Users/username/path-to-abi-in-subgraph"
+        ]
+    },
+    "replace": {
+        "run": true,
+        "tasks": [
+            {
+                "description": "Replace Factory address in interface constants folder",
+                "path": "/Users/username/path-to-folder-with-files-to-replace",
+                "replace": "0x00000",
+                "extensions": ["*.ts", "*.tsx"]
+            },
+            {
+                "description": "Replace CampaignFactory implementation address in home page",
+                "path": "/Users/username/path-to-folder-with-files-to-replace",
+                "replace": "0x00000",
+                "extensions": ["*.tsx"]
+            },
+            {
+                "description": "Replace Factory address subgraph yaml file",
+                "path": "/Users/username/path-to-folder-with-files-to-replace",
+                "replace": "0x00000",
+                "extensions": ["*.yaml"]
+            },
+            {
+                "description": "Replace Factory address subgraph utils folder",
+                "path": "/Users/username/path-to-folder-with-files-to-replace",
+                "replace": "0x00000",
+                "extensions": ["*.ts"]
+            }
+        ]
+    },
+    "subgraphCodegen": {
+        "run": true,
+        "script": "yarn codegen"
+    },
+    "subgraphBuild": {
+        "run": true,
+        "script": "yarn build"
+    },
+    "subgraphDeploy": {
+        "run": true,
+        "script": "yarn create-local && yarn deploy-local"
+    }
+}

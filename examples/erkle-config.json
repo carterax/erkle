@@ -1,64 +1,119 @@
 {
-    "contractPath": "/Users/username/path-to-dapp",
-    "subgraphPath": "/Users/username/path-to-subgraph",
-    "contractCompile": {
-        "run": true,
-        "script": "npm run postinstall"
-    },
-    "contractMigration": {
-        "run": true,
-        "script": "npm run migrate"
-    },
-    "contractABICopy": {
-        "run": true,
+    "contractPath": "/Users/username/path-to-hardhat-or-truffle-project",
+    "subgraphPath": "/Users/username/path-to-your-subgraph-project",
+    "abiUpdate": {
+        "skip": false,
         "compiledContracts": [
             "/build/contracts/Factory.json",
-            "/build/contracts/Delegate.json"
+            "/build/contracts/CampaignRewards.json",
+            "/build/contracts/Campaign.json",
+            "/build/contracts/CampaignFactory.json"
         ],
         "copyABITo": [
             "/Users/username/path-to-abi-in-interface",
             "/Users/username/path-to-abi-in-subgraph"
         ]
     },
-    "replace": {
-        "run": true,
+    "compile": {
+        "skip": false,
         "tasks": [
             {
-                "description": "Replace Factory address in interface constants folder",
-                "path": "/Users/username/path-to-folder-with-files-to-replace",
-                "replace": "0x0000000000000000000000000000000000000000",
-                "extensions": ["*.ts", "*.tsx"]
-            },
-            {
-                "description": "Replace CampaignFactory implementation address in home page",
-                "path": "/Users/username/path-to-folder-with-files-to-replace",
-                "replace": "0x0000000000000000000000000000000000000000",
-                "extensions": ["*.tsx"]
-            },
-            {
-                "description": "Replace Factory address subgraph yaml file",
-                "path": "/Users/username/path-to-folder-with-files-to-replace",
-                "replace": "0x0000000000000000000000000000000000000000",
-                "extensions": ["*.yaml"]
-            },
-            {
-                "description": "Replace Factory address subgraph utils folder",
-                "path": "/Users/username/path-to-folder-with-files-to-replace",
-                "replace": "0x0000000000000000000000000000000000000000",
-                "extensions": ["*.ts"]
+                "description": "Compile Contracts",
+                "script": "npm run postinstall",
+                "skip": false
             }
         ]
     },
-    "subgraphCodegen": {
-        "run": true,
-        "script": "yarn codegen"
+    "migration": {
+        "skip": false,
+        "tasks": [
+            {
+                "description": "Migrate Contracts To Local Network",
+                "script": "npm run migrate",
+                "skip": false
+            }
+        ]
     },
-    "subgraphBuild": {
-        "run": true,
-        "script": "yarn build"
+    "replace": {
+        "skip": false,
+        "tasks": [
+            {
+                "description": "Replace Factory address in interface constants",
+                "path": "/Users/username/path-to-folder-with-files-to-replace",
+                "replace": "0x0000000000000000000000000000000000000000",
+                "extensions": [
+                    "*.ts"
+                ],
+                "skip": false
+            },
+            {
+                "description": "Replace Delegate implementation address",
+                "path": "/Users/username/path-to-folder-with-files-to-replace",
+                "replace": "0x0000000000000000000000000000000000000000",
+                "extensions": [
+                    "*.tsx"
+                ],
+                "skip": false
+            },
+            {
+                "description": "Replace Factory address at subgraph yaml file",
+                "path": "/Users/username/path-to-folder-with-files-to-replace",
+                "replace": "0x0000000000000000000000000000000000000000",
+                "extensions": [
+                    "*.yaml"
+                ],
+                "skip": false
+            },
+            {
+                "description": "Replace Factory address subgraph utils",
+                "path": "/Users/username/path-to-folder-with-files-to-replace",
+                "replace": "0x0000000000000000000000000000000000000000",
+                "extensions": [
+                    "*.ts"
+                ],
+                "skip": false
+            }
+        ]
     },
-    "subgraphDeploy": {
-        "run": true,
-        "script": "yarn create-local && yarn deploy-local"
+    "subgraph": {
+        "skip": false,
+        "tasks": [
+            {
+                "description": "Remove previous subgraph",
+                "script": "yarn remove-local",
+                "skip": false
+            },
+            {
+                "description": "Run subgraph codegen",
+                "script": "yarn codegen",
+                "skip": false
+            },
+            {
+                "description": "Run subgraph build",
+                "script": "yarn build",
+                "skip": false
+            },
+            {
+                "description": "Create subgraph",
+                "script": "yarn create-local",
+                "skip": false
+            },
+            {
+                "description": "Deplpoy subgraph",
+                "script": "yarn deploy-local",
+                "skip": false
+            }
+        ]
+    },
+    "extras": {
+        "skip": false,
+        "tasks": [
+            {
+                "path": "/Users/username/path-to-workflow-folder",
+                "description": "Start next server",
+                "script": "npm run dev",
+                "skip": false
+            }
+        ]
     }
 }

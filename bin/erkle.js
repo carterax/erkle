@@ -1,7 +1,7 @@
 #! /usr/bin/env node
-let shell = require('shelljs');
-var child_process = require('child_process');
-let readlineSync = require('readline-sync');
+const shell = require('shelljs');
+const child_process = require('child_process');
+const readlineSync = require('readline-sync');
 const fs = require('fs-extra');
 const path = require('path');
 const chalk = require('chalk');
@@ -189,9 +189,9 @@ if (!getOption('skipReplace', replace.skip)) {
 
     if (!replace.tasks[i].skip) {
       shell.exec(
-        `echo ❯ ${chalk.magenta('Task: ')} ${chalk.yellowBright(
-          replace.tasks[i].description
-        )}`
+        'echo ❯' +
+          chalk.magenta('Task: ') +
+          chalk.yellowBright(replace.tasks[i].description)
       );
       shell.exec(
         'echo ❯ ' + chalk.magenta('Path: ') + chalk.dim(replace.tasks[i].path)
@@ -209,11 +209,9 @@ if (!getOption('skipReplace', replace.skip)) {
         shell.cd(path.resolve(replace.tasks[i].path));
         shell
           .ls(
-            `${
-              replace.tasks[i].extensions.length > 1
-                ? `{${replace.tasks[i].extensions}}`
-                : replace.tasks[i].extensions
-            }`
+            replace.tasks[i].extensions.length > 1
+              ? '{' + replace.tasks[i].extensions + '}'
+              : replace.tasks[i].extensions
           )
           .forEach((file) => {
             shell.sed('-i', replace.tasks[i].replace, replaceWith, file);

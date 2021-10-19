@@ -30,7 +30,7 @@ Tasks run in this order
 4. Run Subgraph
 5. Extra Tasks e.g Running a next server
 
-An erkle configuration file is required for this to work, here's an [example config](https://github.com/pelicandistress/erkle/blob/main/examples/erkle-config.json).
+An erkle configuration file is required for this to work, here's an [example config](https://github.com/carterax/erkle/blob/main/examples/erkle-config.json).
 After each run, if you ran the replace task, the new string you entered in the CLI will be written to your erkle config file for the next run.
 
 ```sh
